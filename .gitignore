@@ -1,0 +1,10 @@
+.classpath
+.factorypath
+.project
+.settings/
+target/
+
+*.swp
+*~
+*.bak
+
