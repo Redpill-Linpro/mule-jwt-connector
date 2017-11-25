@@ -30,7 +30,7 @@ public class DecodePayloadTestCases extends AbstractTestCase<JSONWebTokenConnect
 	@Test
 	public void verifyDecodePayload() throws IOException {
 		java.lang.String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhYmMxMjMifQ.jfr_NOtWZYgvfRfz7W9HPs5jFp8QGcKlPd2P1sKZ4R4";
-		JsonData result = getConnector().decodePayload(token, false);
+		JsonData result = getConnector().decode(token, false);
 		assertEquals(result.get("aud").getTextValue(), "abc123");
 	}
 

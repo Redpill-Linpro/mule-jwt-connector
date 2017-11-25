@@ -11,7 +11,7 @@ Supports decoding and validation of JSON Web Token accroding to RFC 7519.
 
 Suports algorithm NONE and HS256
 
-#Service or application supported modules
+# Service or application supported modules
 
 JSON Web Token accroding to RFC 7519.
 
@@ -23,7 +23,7 @@ For released connectors you can download them from the update site in Anypoint S
 First download the UpdateSite.zip for the release.  
 Open Anypoint Studio, go to Help → Install New Software, select Add... and then Archive... After this select the downloaded UpdateSite.zip
 
-#Usage
+# Usage
 For information about usage our documentation at https://github.com/Redpill-Linpro/jwt-connector
 
 # Reporting Issues

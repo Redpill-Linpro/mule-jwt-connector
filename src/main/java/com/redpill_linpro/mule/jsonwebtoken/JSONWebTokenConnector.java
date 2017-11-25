@@ -41,7 +41,7 @@ public class JSONWebTokenConnector {
 
 
     /**
-     * Decode JWT Token into a Map
+     * Decode JWT into a JsonData
      *
      * @param token The JSON Web Token to decode
      * @param validateSignature If the JSON Web Token should be validated before decoded
@@ -50,7 +50,7 @@ public class JSONWebTokenConnector {
      */
     @Processor(friendlyName="Decode JWT")
     @Mime("application/json")
-    public JsonData decodePayload(@Default("#[message.inboundProperties['Authorization']]") String token, @Default("false") Boolean validateSignature) throws IOException {
+    public JsonData decode(@Default("#[message.inboundProperties['Authorization']]") String token, @Default("false") Boolean validateSignature) throws IOException {
     	String[] jwtParts = splitToken(token);
     	if ( !validateSignature || doValidate(jwtParts)) {
     		JsonData jwtPayload = new JsonData(new ByteArrayInputStream(Base64.getDecoder().decode(jwtParts[1])));
@@ -61,6 +61,12 @@ public class JSONWebTokenConnector {
     }
 
     
+    /**
+     * Validates a JWT 
+     * @param token The JSON Web Token to validate
+     * @return <code>true</code> if the provide token has none or valid signature 
+     * @throws IOException If we are not able to parse the JSON Web Token header or payload.
+     */
     @Filter
     public boolean signatureIsValid(
     		@Default("#[message.inboundProperties['Authorization']]") String token) throws IOException {

@@ -19,7 +19,7 @@ public class JSONWebTokenConnectorTest {
 		connector.setConfig(connectorConfig);
 		
 		java.lang.String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhYmMxMjMifQ.jfr_NOtWZYgvfRfz7W9HPs5jFp8QGcKlPd2P1sKZ4R4";
-		JsonData result = connector.decodePayload(token, false);
+		JsonData result = connector.decode(token, false);
 		assertEquals(result.get("aud").getTextValue(), "abc123");
 	}
 	
@@ -31,7 +31,7 @@ public class JSONWebTokenConnectorTest {
 		connector.setConfig(connectorConfig);
 		
 		java.lang.String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhYmMxMjMifQ.jfr_NOtWZYgvfRfz7W9HPs5jFp8QGcKlPd2P1sKZ4R4";
-		JsonData result = connector.decodePayload(token, true);
+		JsonData result = connector.decode(token, true);
 		assertEquals(result.get("aud").getTextValue(), "abc123");
 	}
 	
@@ -43,7 +43,7 @@ public class JSONWebTokenConnectorTest {
 		connector.setConfig(connectorConfig);
 		
 		java.lang.String token = "eyJhbGciOiJOT05FIiwidHlwIjoiSldUIn0.eyJhdWQiOiJhYmMxMjMifQ.";
-		JsonData result = connector.decodePayload(token, true);
+		JsonData result = connector.decode(token, true);
 		assertEquals(result.get("aud").getTextValue(), "abc123");
 	}
 	
