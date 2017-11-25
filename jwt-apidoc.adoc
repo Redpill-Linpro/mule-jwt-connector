@@ -1,0 +1,147 @@
+
+:toc:               left
+:toc-title:         Connector Summary
+:toclevels:         2
+:last-update-label!:
+:docinfo:
+:source-highlighter: coderay
+:icons: font
+
+
+= JSON Web Token Connector API Reference
+
++++
+JSON Web Token Connector for Mule Runtime.
++++
+
+*Additional Info*
+[width="50", cols=".<60%,^40%" ]
+|======================
+| Requires Mule Enterprise License |  No icon:remove[]  {nbsp}
+| Requires Entitlement |  No icon:remove[]  {nbsp}
+| Mule Version | 3.8.0 or higher
+|======================
+
+
+== Configs
+---
+=== Configuration
+`<jwt:config>`
+
+
+
+`Configuration` 
+
+
+==== Attributes
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Java Type | Description | Default Value | Required
+|name | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a>+++ | The name of this configuration. With this name can be later referenced. | | *x*{nbsp}
+| secret | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a>+++ | +++Specifies a secret/public key for JWT encryption.+++ |   | {nbsp}
+|======================
+
+
+
+== Processors
+
+---
+
+=== Decode JWT
+`<jwt:decode>`
+
+
+
+
++++
+Decode JWT into a JsonData
++++
+
+==== XML Sample
+[source,xml]
+----
+<jwt:decode config-ref="" token="#[message.inboundProperties['Authorization']]" validateSignature="false"/>
+----
+
+    
+        
+==== Attributes
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+|Name |Java Type | Description | Default Value | Required
+| config-ref | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a>+++ | Specify which config to use | |*x*{nbsp}
+
+
+
+| 
+token  | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a>+++ | +++The JSON Web Token to decode+++ | #[message.inboundProperties['Authorization']] | {nbsp}
+
+
+
+
+| 
+validateSignature  | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html">Boolean</a>+++ | +++If the JSON Web Token should be validated before decoded+++ | false | {nbsp}
+
+
+|======================
+
+==== Returns
+[cols=".^40%,.^60%", options="header"]
+|======================
+|Return Java Type | Description
+|+++JsonData+++ | +++A JSONObject containing the claims from the JSON Web Token payload+++
+|======================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+== Filters
+
+---
+
+=== Signature is valid
+`<jwt:signature-is-valid>`
+
+
+
+
++++
+Validates a JWT
++++
+
+==== XML Sample
+[source,xml]
+----
+<jwt:signature-is-valid config-ref="" token="#[message.inboundProperties['Authorization']]"/>
+----
+
+    
+
+==== Attributes
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+|Name |Java Type | Description | Default Value | Required
+| config-ref | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a>+++ | Specify which config to use | |*x*{nbsp}
+| token | +++<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a>+++ | +++The JSON Web Token to validate+++ | #[message.inboundProperties['Authorization']] | {nbsp}
+|======================
+
+==== Returns
+[cols=".^40%,.^60%", options="header"]
+|======================
+|Return Java Type | Description
+|+++boolean+++ | +++<code>true</code> if the provide token has none or valid signature+++
+|======================
+
+
+
+
