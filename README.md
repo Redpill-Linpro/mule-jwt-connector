@@ -24,8 +24,9 @@ First download the UpdateSite.zip for the release.
 Open Anypoint Studio, go to Help → Install New Software, select Add... and then Archive... After this select the downloaded UpdateSite.zip
 
 # Usage
-For information about usage our documentation at https://github.com/Redpill-Linpro/jwt-connector
+
+For information about usage our documentation at https://redpill-linpro.github.io/mule-jwt-connector/
 
 # Reporting Issues
 
-We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/Redpill-Linpro/jwt-connector/issues.
+We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/Redpill-Linpro/mule-jwt-connector/issues.
