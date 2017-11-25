@@ -1,0 +1,6 @@
+<!-- BEGIN_INCLUDE(jwt:decode) -->
+    <jwt:decode config-ref="" token="#[message.inboundProperties['Authorization']]" validateSignature="false"/>
+<!-- END_INCLUDE(jwt:decode) -->
+<!-- BEGIN_INCLUDE(jwt:signature-is-valid) -->
+    <jwt:signature-is-valid config-ref="" token="#[message.inboundProperties['Authorization']]"/>
+<!-- END_INCLUDE(jwt:signature-is-valid) -->
